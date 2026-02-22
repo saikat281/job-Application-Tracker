@@ -46,37 +46,39 @@
 
     </section>
 
-    <section id="available-jobs" class="w-9/12 mx-auto pt-10 text-2xl">
+    <div class="w-9/12 mx-auto pt-10">
         <div class="flex justify-between">
-            <h1 class="text-base-200">Available Jobs</h1>
+            <h1 class="text-black">Available Jobs</h1>
             <p class="text-gray-600"><span>0</span> jobs</p>
         </div>
         <div class="available-buttons p-3 ">
-            <button class="btn p-5 w-24 text-white bg-blue-500">All</button>
-            <button class="btn text-gray-500">Interview</button>
-            <button class="btn text-gray-500">Rejected</button>
+            <button id="all-btn" onclick="Toggle('all-btn')" class="btn p-5 w-24 text-white bg-blue-500">All</button>
+            <button id="interview-btn" onclick="Toggle('interview-btn')" class="btn text-gray-500">Interview</button>
+            <button id="reject-btn" onclick="Toggle('reject-btn')" class="btn text-gray-500">Rejected</button>
         </div>
+    </div>
 
-        <div class=" card-item p-10 space-y-8">
+    <section id="all-jobs" class="w-9/12 mx-auto pt-10 text-2xl ">
+
+        <div id="all-cards" class=" card-item p-10 space-y-8">
+
             <div class=" card space-y-3 shadow-md p-6">
-                <div class="  flex justify-between items-center">
+                <div class="flex justify-between items-center">
                     <div>
-                        <p class="text-[20px] font-bold text-blue-950">Mobile First Corp</p>
-                        <p class="text-[16px] text-gray-500">React Native Developer</p>
+                        <p class="company text-[20px] font-bold text-blue-950">Mobile First Corp</p>
+                        <p class="skill text-[16px] text-gray-500">React Native Developer</p>
                     </div>
                     <button class="cursor-pointer"> <img class="size-6" src="assets/Trash.png" alt=""> </button>
                 </div>
-                <p class="text-[16px] text-gray-500">Remote • Full-time • $130,000 - $175,000</p>
-                <button class="btn bg-blue-100 w-max">NOT APPLIED</button>
-                <p class="text-[16px]">Build cross-platform mobile applications using React Native. Work on products
+                <p class="about text-[16px] text-gray-500">Remote • Full-time • $130,000 - $175,000</p>
+                <button class="apply-status btn bg-blue-100 w-max">NOT APPLIED</button>
+                <p class="work-descript text-[16px]">Build cross-platform mobile applications using React Native. Work on products
                     used by millions of
                     users worldwide.</p>
                 <div>
-                    <button class="btn btn-outline btn-success">INTERVIEW</button>
-                    <button class="btn btn-outline btn-error">REJECTED</button>
+                    <button class="int btn btn-outline btn-success">INTERVIEW</button>
+                    <button class="rej btn btn-outline btn-error">REJECTED</button>
                 </div>
-
-
             </div>
 
             <div class=" card space-y-3 shadow-md p-6">
@@ -130,7 +132,8 @@
                 </div>
                 <p class="text-[16px] text-gray-500">Seattle, WA • Full-time • $140,000 - $190,000</p>
                 <button class="btn bg-blue-100 w-max">NOT APPLIED</button>
-                <p class="text-[16px]">Design and maintain scalable backend systems using Python and AWS. Work with modern DevOps practices and cloud infrastructure.</p>
+                <p class="text-[16px]">Design and maintain scalable backend systems using Python and AWS. Work with
+                    modern DevOps practices and cloud infrastructure.</p>
                 <div>
                     <button class="btn btn-outline btn-success">INTERVIEW</button>
                     <button class="btn btn-outline btn-error">REJECTED</button>
@@ -149,7 +152,8 @@
                 </div>
                 <p class="text-[16px] text-gray-500">Austin, TX • Full-time • $110,000 - $150,000</p>
                 <button class="btn bg-blue-100 w-max">NOT APPLIED</button>
-                <p class="text-[16px]">Create beautiful and functional user interfaces for our suite of products. Strong design skills and frontend development expertise required.</p>
+                <p class="text-[16px]">Create beautiful and functional user interfaces for our suite of products. Strong
+                    design skills and frontend development expertise required.</p>
                 <div>
                     <button class="btn btn-outline btn-success">INTERVIEW</button>
                     <button class="btn btn-outline btn-error">REJECTED</button>
@@ -168,7 +172,8 @@
                 </div>
                 <p class="text-[16px] text-gray-500">RNew York, NY • Full-time • $130,000 - $170,00</p>
                 <button class="btn bg-blue-100 w-max">NOT APPLIED</button>
-                <p class="text-[16px]">Build enterprise applications with JavaScript and modern frameworks. We offer competitive compensation, health insurance, and professional development opportunities.</p>
+                <p class="text-[16px]">Build enterprise applications with JavaScript and modern frameworks. We offer
+                    competitive compensation, health insurance, and professional development opportunities.</p>
                 <div>
                     <button class="btn btn-outline btn-success">INTERVIEW</button>
                     <button class="btn btn-outline btn-error">REJECTED</button>
@@ -187,7 +192,8 @@
                 </div>
                 <p class="text-[16px] text-gray-500">Remote • Full-time • $120,000 - $160,000</p>
                 <button class="btn bg-blue-100 w-max">NOT APPLIED</button>
-                <p class="text-[16px]">Join our fast-growing startup and work on our core platform. Experience with Node.js and React required. Great benefits and equity package included.</p>
+                <p class="text-[16px]">Join our fast-growing startup and work on our core platform. Experience with
+                    Node.js and React required. Great benefits and equity package included.</p>
                 <div>
                     <button class="btn btn-outline btn-success">INTERVIEW</button>
                     <button class="btn btn-outline btn-error">REJECTED</button>
@@ -196,7 +202,7 @@
 
             </div>
 
-            <div class="card space-y-3 shadow-md">
+            <div class="card space-y-3 shadow-md p-6">
                 <div class="  flex justify-between items-center">
                     <div>
                         <p class="text-[20px] font-bold text-blue-950">TechCorp Industries</p>
@@ -206,7 +212,9 @@
                 </div>
                 <p class="text-[16px] text-gray-500">San Francisco, CA • Full-time • $130,000 - $175,000</p>
                 <button class="btn bg-blue-100 w-max">NOT APPLIED</button>
-                <p class="text-[16px]">We are looking for an experienced Frontend Developer to build scalable web applications using React and TypeScript. You will work with a talented team on cutting-edge projects.</p>
+                <p class="text-[16px]">We are looking for an experienced Frontend Developer to build scalable web
+                    applications using React and TypeScript. You will work with a talented team on cutting-edge
+                    projects.</p>
                 <div>
                     <button class="btn btn-outline btn-success">INTERVIEW</button>
                     <button class="btn btn-outline btn-error">REJECTED</button>
@@ -214,10 +222,31 @@
 
 
             </div>
-            
-        </div> 
+
+        </div>
+
     </section>
-    
+
+        <section id="interview" class="w-9/12 mx-auto pt-10">
+            <h1> Interview</h1>
+
+            <div class="empty-box flex justify-center items-center flex-col py-28 px-6 shadow">
+                <div class="flex justify-center mb-10">
+                    <img src="assets/empty.png" alt="">
+                </div>
+                <p class="text-[24px] font-bold">No jobs available</p>
+                <p class="text-gray-400">Check back soon for new job opportunities</p>
+            </div>
+
+        </section>
+        
+        
+        <section id="reject" class="w-9/12 mx-auto pt-10 ">
+            <h1> reject</h1>
+        </section>
+
+        <script src="machine.js"></script>
+        <script src="script.js"></script>
 </body>
 
 </html>
