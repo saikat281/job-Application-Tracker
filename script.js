@@ -37,6 +37,8 @@ function Toggle(id) {
 
 //Interview / Rejection
 
+
+//Toggling from main/all selction
 const main_container = document.getElementById("all-cards");
 
 main_container.addEventListener('click', function (event) {
@@ -96,7 +98,7 @@ main_container.addEventListener('click', function (event) {
         const ExistRej = reject_List.find(item => item.company == cardinfo.company);
 
         if (!ExistRej) {
-            reject_List.push(cardinfo);  
+            reject_List.push(cardinfo);
         }
         interview_List = interview_List.filter(item => item.company != cardinfo.company);
         RenderInterview();
@@ -106,8 +108,167 @@ main_container.addEventListener('click', function (event) {
 
     //console.log(interview_List);
 })
-//RenderInterview();
-// Render Interview
+
+const Interview_container = document.getElementById("interview");
+
+
+//Toggling from Interview Section
+Interview_container.addEventListener('click', function (event) {
+
+    if (event.target.classList.contains("int")) {
+        const parent = event.target.parentNode.parentNode;
+
+        const company = parent.querySelector(".company").innerText;
+        const skill = parent.querySelector(".skill").innerText;
+        const about = parent.querySelector(".about").innerText;
+        const apply_status = parent.querySelector(".apply-status").innerText;
+        const work_descript = parent.querySelector(".work-descript").innerText;
+
+        //console.log(company,skill,about,apply_status,work_descript);
+
+        const cardinfo = {
+            company,
+            skill,
+            about,
+            apply_status,
+            work_descript
+        }
+
+
+        //console.log(cardinfo);
+        const ExistInt = interview_List.find(item => item.company == cardinfo.company);
+
+        if (!ExistInt) {
+            interview_List.push(cardinfo);
+        }
+        reject_List = reject_List.filter(item => item.company != cardinfo.company);
+        RenderInterview();
+        RenderRejcet();
+    }
+
+    else if (event.target.classList.contains("rej")) {
+        const parent = event.target.parentNode.parentNode;
+
+        const company = parent.querySelector(".company").innerText;
+        const skill = parent.querySelector(".skill").innerText;
+        const about = parent.querySelector(".about").innerText;
+        const apply_status = parent.querySelector(".apply-status").innerText;
+        const work_descript = parent.querySelector(".work-descript").innerText;
+
+        //console.log(company,skill,about,apply_status,work_descript);
+
+        const cardinfo = {
+            company,
+            skill,
+            about,
+            apply_status,
+            work_descript
+        }
+
+
+        //console.log(cardinfo);
+        const ExistRej = reject_List.find(item => item.company == cardinfo.company);
+
+        if (!ExistRej) {
+            reject_List.push(cardinfo);
+        }
+        interview_List = interview_List.filter(item => item.company != cardinfo.company);
+        RenderInterview();
+        RenderRejcet();
+    }
+})
+
+
+//Toggling from Reject section
+const reject_container = document.getElementById("reject");
+
+reject_container.addEventListener('click', function (event) {
+
+    if (event.target.classList.contains("int")) {
+        const parent = event.target.parentNode.parentNode;
+
+        const company = parent.querySelector(".company").innerText;
+        const skill = parent.querySelector(".skill").innerText;
+        const about = parent.querySelector(".about").innerText;
+        const apply_status = parent.querySelector(".apply-status").innerText;
+        const work_descript = parent.querySelector(".work-descript").innerText;
+
+        //console.log(company,skill,about,apply_status,work_descript);
+
+        const cardinfo = {
+            company,
+            skill,
+            about,
+            apply_status,
+            work_descript
+        }
+
+
+        //console.log(cardinfo);
+        const ExistInt = interview_List.find(item => item.company == cardinfo.company);
+
+        if (!ExistInt) {
+            interview_List.push(cardinfo);
+        }
+        reject_List = reject_List.filter(item => item.company != cardinfo.company);
+        RenderInterview();
+        RenderRejcet();
+    }
+
+    else if (event.target.classList.contains("rej")) {
+        const parent = event.target.parentNode.parentNode;
+
+        const company = parent.querySelector(".company").innerText;
+        const skill = parent.querySelector(".skill").innerText;
+        const about = parent.querySelector(".about").innerText;
+        const apply_status = parent.querySelector(".apply-status").innerText;
+        const work_descript = parent.querySelector(".work-descript").innerText;
+
+        //console.log(company,skill,about,apply_status,work_descript);
+
+        const cardinfo = {
+            company,
+            skill,
+            about,
+            apply_status,
+            work_descript
+        }
+
+
+        //console.log(cardinfo);
+        const ExistRej = reject_List.find(item => item.company == cardinfo.company);
+
+        if (!ExistRej) {
+            reject_List.push(cardinfo);
+        }
+        interview_List = interview_List.filter(item => item.company != cardinfo.company);
+        RenderInterview();
+        RenderRejcet();
+    }
+})
+
+//Deletion**
+main_container.addEventListener('click', function (event) {
+
+    if (event.target.classList.contains("Delete-btn")) {
+
+        const parent = event.target.parentNode.parentNode.parentNode;
+        parent.remove();
+
+        const company_add = parent.querySelector(".company").innerText;
+
+        //console.log(company_add);
+        interview_List = interview_List.filter(item => item.company != company_add);
+        reject_List = reject_List.filter(item => item.company != company_add);
+
+        RenderInterview();
+        RenderRejcet();    
+    }
+
+})
+
+
+//Render Functions
 function RenderInterview() {
 
     const par = document.getElementById("int-non-empty-div");
@@ -123,7 +284,7 @@ function RenderInterview() {
                         <p class="company text-[20px] font-bold text-blue-950">${card.company}</p>
                         <p class="skill text-[16px] text-gray-500">${card.skill}</p>
                     </div>
-                </div>
+        </div>
                 <p class="about text-[16px] text-gray-500">${card.about}</p>
                 <button class="apply-status btn bg-blue-100 w-max">${card.apply_status}</button>
                 <p class="work-descript text-[16px]">${card.work_descript}</p>
@@ -162,7 +323,10 @@ function RenderRejcet() {
                     <button class="rej btn btn-outline btn-error">REJECTED</button>
                 </div>`;
         par.appendChild(div);
-}
+    }
 
 }
+
+
+
 
