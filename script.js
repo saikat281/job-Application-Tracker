@@ -3,6 +3,8 @@ let interview_List = [];
 let reject_List = [];
 
 
+
+
 function Toggle(id) {
     const all = document.getElementById("all-btn");
     const interview = document.getElementById("interview-btn");
@@ -72,6 +74,8 @@ main_container.addEventListener('click', function (event) {
         reject_List = reject_List.filter(item => item.company != cardinfo.company);
         RenderInterview();
         RenderRejcet();
+        updateInterviewCount(interview_List.length);
+        updateRejectCount(reject_List.length);
     }
 
     else if (event.target.classList.contains("rej")) {
@@ -103,11 +107,14 @@ main_container.addEventListener('click', function (event) {
         interview_List = interview_List.filter(item => item.company != cardinfo.company);
         RenderInterview();
         RenderRejcet();
+        updateInterviewCount(interview_List.length);
+        updateRejectCount(reject_List.length);
     }
 
 
     //console.log(interview_List);
 })
+
 
 const Interview_container = document.getElementById("interview");
 
@@ -144,6 +151,7 @@ Interview_container.addEventListener('click', function (event) {
         reject_List = reject_List.filter(item => item.company != cardinfo.company);
         RenderInterview();
         RenderRejcet();
+
     }
 
     else if (event.target.classList.contains("rej")) {
@@ -244,6 +252,7 @@ reject_container.addEventListener('click', function (event) {
         interview_List = interview_List.filter(item => item.company != cardinfo.company);
         RenderInterview();
         RenderRejcet();
+        updateInterviewCount();
     }
 })
 
@@ -262,7 +271,10 @@ main_container.addEventListener('click', function (event) {
         reject_List = reject_List.filter(item => item.company != company_add);
 
         RenderInterview();
-        RenderRejcet();    
+        RenderRejcet();
+        updateCount();
+        updateInterviewCount(interview_List.length);
+        updateRejectCount(reject_List.length);    
     }
 
 })
@@ -326,6 +338,10 @@ function RenderRejcet() {
     }
 
 }
+
+
+
+
 
 
 

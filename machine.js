@@ -1,18 +1,17 @@
 
+const allSection = document.getElementById("all-jobs");
+const interviewSection = document.getElementById("interview");
+const rejectSection = document.getElementById("reject");
+function filtering(id) {
 
-function filtering(id){
-
-    const allSection = document.getElementById("all-jobs");
-    const interviewSection = document.getElementById("interview");
-    const rejectSection = document.getElementById("reject");
     allSection.classList.add("hidden");
     interviewSection.classList.add("hidden");
     rejectSection.classList.add("hidden");
-    
-    if(id ==='all-btn'){
+
+    if (id === 'all-btn') {
         allSection.classList.remove("hidden");
     }
-    else if(id ==='interview-btn'){
+    else if (id === 'interview-btn') {
         const int_empty = document.getElementById("int-empty-div");
         const int_non_empty = document.getElementById("int-non-empty-div");
         int_empty.classList.add("hidden");
@@ -20,14 +19,14 @@ function filtering(id){
 
         interviewSection.classList.remove("hidden"); //major
 
-        if(interview_List.length != 0){
+        if (interview_List.length != 0) {
             int_non_empty.classList.remove("hidden");
         }
-        else{
+        else {
             int_empty.classList.remove("hidden");
         }
     }
-    else{
+    else {
         const rej_empty = document.getElementById("rej-empty-div");
         const rej_non_empty = document.getElementById("rej-non-empty-div");
         rej_empty.classList.add("hidden");
@@ -35,12 +34,39 @@ function filtering(id){
 
         rejectSection.classList.remove("hidden"); //major
 
-        if(reject_List.length != 0){
+        if (reject_List.length != 0) {
             rej_non_empty.classList.remove("hidden");
         }
-        else{
+        else {
             rej_empty.classList.remove("hidden");
         }
     }
 }
 
+
+
+//Update AllCount
+const allCount_cards = document.getElementById("all-cards");
+let allCardCount = allCount_cards.children.length;
+let total_cnt = document.getElementById("total-cnt");
+total_cnt.innerText = allCardCount;
+//UpdateAllCountFunction
+function updateCount() {
+    allCardCount = allCount_cards.children.length;
+    total_cnt.innerText = allCardCount;
+}
+
+//UpdateInterviewCount
+let inter_count = document.getElementById("interview-cnt");
+//UpdateInterviewCountFunction
+function updateInterviewCount(count){
+    inter_count.innerText = count;
+}
+
+
+//UpdateRejcetCount
+let reject_count = document.getElementById("reject-cnt");
+//UpdateRejcetCountFunction
+function updateRejectCount(count){
+    reject_count.innerText = count;
+}
