@@ -56,11 +56,18 @@ main_container.addEventListener('click', function (event) {
 
         //console.log(company,skill,about,apply_status,work_descript);
 
+         const status = parent.querySelector(".apply-status");
+         status.classList.remove('bg-blue-100');
+         status.classList.remove('btn-error');
+         status.classList.add('btn-success');
+         status.innerText = "INTERVIEW";
+         
+
         const cardinfo = {
             company,
             skill,
             about,
-            apply_status,
+            apply_status:'INTERVIEW',
             work_descript
         }
 
@@ -89,11 +96,17 @@ main_container.addEventListener('click', function (event) {
 
         //console.log(company,skill,about,apply_status,work_descript);
 
+         const status = parent.querySelector(".apply-status");
+         status.classList.remove('bg-blue-100');
+         status.classList.remove('btn-success');
+         status.classList.add('btn-error');
+         status.innerText = "REJECT";
+
         const cardinfo = {
             company,
             skill,
             about,
-            apply_status,
+            apply_status:'REJECT',
             work_descript
         }
 
@@ -133,11 +146,14 @@ Interview_container.addEventListener('click', function (event) {
 
         //console.log(company,skill,about,apply_status,work_descript);
 
+        const status = parent.querySelector(".apply-status");
+        status.classList.remove('btn-error','bg-blue-100');
+
         const cardinfo = {
             company,
             skill,
             about,
-            apply_status,
+            apply_status:'INTERVIEW',
             work_descript
         }
 
@@ -151,6 +167,11 @@ Interview_container.addEventListener('click', function (event) {
         reject_List = reject_List.filter(item => item.company != cardinfo.company);
         RenderInterview();
         RenderRejcet();
+        updateInterviewCount(interview_List.length);
+        updateRejectCount(reject_List.length);
+
+
+
 
     }
 
@@ -169,10 +190,12 @@ Interview_container.addEventListener('click', function (event) {
             company,
             skill,
             about,
-            apply_status,
+            apply_status:'REJECT',
             work_descript
         }
 
+        const status = parent.querySelector(".apply-status");
+        status.classList.remove('btn-success','bg-blue-100');
 
         //console.log(cardinfo);
         const ExistRej = reject_List.find(item => item.company == cardinfo.company);
@@ -183,6 +206,8 @@ Interview_container.addEventListener('click', function (event) {
         interview_List = interview_List.filter(item => item.company != cardinfo.company);
         RenderInterview();
         RenderRejcet();
+        updateInterviewCount(interview_List.length);
+        updateRejectCount(reject_List.length);
     }
 })
 
@@ -203,11 +228,14 @@ reject_container.addEventListener('click', function (event) {
 
         //console.log(company,skill,about,apply_status,work_descript);
 
+        const status = parent.querySelector(".apply-status");
+        status.classList.remove('btn-error','bg-blue-100');
+
         const cardinfo = {
             company,
             skill,
             about,
-            apply_status,
+            apply_status:'INTERVIEW',
             work_descript
         }
 
@@ -221,6 +249,8 @@ reject_container.addEventListener('click', function (event) {
         reject_List = reject_List.filter(item => item.company != cardinfo.company);
         RenderInterview();
         RenderRejcet();
+        updateInterviewCount(interview_List.length);
+        updateRejectCount(reject_List.length);
     }
 
     else if (event.target.classList.contains("rej")) {
@@ -234,11 +264,14 @@ reject_container.addEventListener('click', function (event) {
 
         //console.log(company,skill,about,apply_status,work_descript);
 
+        const status = parent.querySelector(".apply-status");
+        status.classList.remove('btn-success','bg-blue-100');
+
         const cardinfo = {
             company,
             skill,
             about,
-            apply_status,
+            apply_status:'REJECT',
             work_descript
         }
 
@@ -252,7 +285,9 @@ reject_container.addEventListener('click', function (event) {
         interview_List = interview_List.filter(item => item.company != cardinfo.company);
         RenderInterview();
         RenderRejcet();
-        updateInterviewCount();
+        updateInterviewCount(interview_List.length);
+        updateRejectCount(reject_List.length);
+        
     }
 })
 
@@ -298,7 +333,7 @@ function RenderInterview() {
                     </div>
         </div>
                 <p class="about text-[16px] text-gray-500">${card.about}</p>
-                <button class="apply-status btn bg-blue-100 w-max">${card.apply_status}</button>
+                <button class="apply-status btn btn-success w-max cursor-default">${card.apply_status}</button>
                 <p class="work-descript text-[16px]">${card.work_descript}</p>
                 <div>
                     <button class="int btn btn-outline btn-success">INTERVIEW</button>
@@ -310,6 +345,7 @@ function RenderInterview() {
 
 
 }
+
 function RenderRejcet() {
 
 
@@ -328,7 +364,7 @@ function RenderRejcet() {
                     </div>
                 </div>
                 <p class="about text-[16px] text-gray-500">${card.about}</p>
-                <button class="apply-status btn bg-blue-100 w-max">${card.apply_status}</button>
+                <button class="apply-status btn btn-error w-max cursor-default">${card.apply_status}</button>
                 <p class="work-descript text-[16px]">${card.work_descript}</p>
                 <div>
                     <button class="int btn btn-outline btn-success">INTERVIEW</button>

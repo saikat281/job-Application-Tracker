@@ -49,11 +49,14 @@ function filtering(id) {
 const allCount_cards = document.getElementById("all-cards");
 let allCardCount = allCount_cards.children.length;
 let total_cnt = document.getElementById("total-cnt");
+let available_jobs = document.getElementById("available-jobs");
 total_cnt.innerText = allCardCount;
+available_jobs.innerText = allCardCount;
 //UpdateAllCountFunction
 function updateCount() {
     allCardCount = allCount_cards.children.length;
     total_cnt.innerText = allCardCount;
+    available_jobs.innerText = allCardCount;
 }
 
 //UpdateInterviewCount
