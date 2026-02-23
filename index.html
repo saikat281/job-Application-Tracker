@@ -72,7 +72,8 @@
                 </div>
                 <p class="about text-[16px] text-gray-500">Remote • Full-time • $130,000 - $175,000</p>
                 <button class="apply-status btn bg-blue-100 w-max">NOT APPLIED</button>
-                <p class="work-descript text-[16px]">Build cross-platform mobile applications using React Native. Work on products
+                <p class="work-descript text-[16px]">Build cross-platform mobile applications using React Native. Work
+                    on products
                     used by millions of
                     users worldwide.</p>
                 <div>
@@ -82,26 +83,26 @@
             </div>
 
             <div class=" card space-y-3 shadow-md p-6">
-                <div class="  flex justify-between items-center">
+                <div class="flex justify-between items-center">
                     <div>
-                        <p class="text-[20px] font-bold text-blue-950">WebFlow Agency</p>
-                        <p class="text-[16px] text-gray-500">Web Designer & Developer</p>
+                        <p class="company text-[20px] font-bold text-blue-950">WebFlow Agency</p>
+                        <p class="skill text-[16px] text-gray-500">React Native Developer</p>
                     </div>
                     <button class="cursor-pointer"> <img class="size-6" src="assets/Trash.png" alt=""> </button>
                 </div>
-                <p class="text-[16px] text-gray-500">Los Angeles, CA • Part-time • $80,000 - $120,000</p>
-                <button class="btn bg-blue-100 w-max">NOT APPLIED</button>
-                <p class="text-[16px]">Create stunning web experiences for high-profile clients. Must have portfolio and
-                    experience with modern web design trends.</p>
+                <p class="about text-[16px] text-gray-500">Remote • Full-time • $130,000 - $175,000</p>
+                <button class="apply-status btn bg-blue-100 w-max">NOT APPLIED</button>
+                <p class="work-descript text-[16px]">Build cross-platform mobile applications using React Native. Work
+                    on products
+                    used by millions of
+                    users worldwide.</p>
                 <div>
-                    <button class="btn btn-outline btn-success">INTERVIEW</button>
-                    <button class="btn btn-outline btn-error">REJECTED</button>
+                    <button class="int btn btn-outline btn-success">INTERVIEW</button>
+                    <button class="rej btn btn-outline btn-error">REJECTED</button>
                 </div>
-
-
             </div>
 
-            <div class="card space-y-3 shadow-md p-6">
+            <div class="card space-y-3 shadow-md p-6 hidden">
                 <div class="  flex justify-between items-center">
                     <div>
                         <p class="text-[20px] font-bold text-blue-950">DataViz Solutions</p>
@@ -122,7 +123,7 @@
 
             </div>
 
-            <div class="card space-y-3 shadow-md p-6">
+            <div class="card space-y-3 shadow-md p-6 hidden">
                 <div class="  flex justify-between items-center">
                     <div>
                         <p class="text-[20px] font-bold text-blue-950">CloudFirst Inc</p>
@@ -142,7 +143,7 @@
 
             </div>
 
-            <div class="card space-y-3 shadow-md p-6">
+            <div class="card space-y-3 shadow-md p-6 hidden">
                 <div class="  flex justify-between items-center">
                     <div>
                         <p class="text-[20px] font-bold text-blue-950">Innovation Labs</p>
@@ -162,7 +163,7 @@
 
             </div>
 
-            <div class="card space-y-3 shadow-md p-6">
+            <div class="card space-y-3 shadow-md p-6 hidden">
                 <div class="  flex justify-between items-center">
                     <div>
                         <p class="text-[20px] font-bold text-blue-950">MegaCorp Solutions</p>
@@ -182,7 +183,7 @@
 
             </div>
 
-            <div class="card space-y-3 shadow-md p-6">
+            <div class="card space-y-3 shadow-md p-6 hidden">
                 <div class="  flex justify-between items-center">
                     <div>
                         <p class="text-[20px] font-bold text-blue-950">StartupXYZ</p>
@@ -202,7 +203,7 @@
 
             </div>
 
-            <div class="card space-y-3 shadow-md p-6">
+            <div class="card space-y-3 shadow-md p-6 hidden">
                 <div class="  flex justify-between items-center">
                     <div>
                         <p class="text-[20px] font-bold text-blue-950">TechCorp Industries</p>
@@ -227,10 +228,10 @@
 
     </section>
 
-        <section id="interview" class="w-9/12 mx-auto pt-10">
+    <!-- <section id="interview" class="w-9/12 mx-auto pt-10">
             <h1> Interview</h1>
 
-            <div class="empty-box flex justify-center items-center flex-col py-28 px-6 shadow">
+            <div class=" flex justify-center items-center flex-col py-28 px-6 shadow">
                 <div class="flex justify-center mb-10">
                     <img src="assets/empty.png" alt="">
                 </div>
@@ -238,15 +239,42 @@
                 <p class="text-gray-400">Check back soon for new job opportunities</p>
             </div>
 
-        </section>
-        
-        
-        <section id="reject" class="w-9/12 mx-auto pt-10 ">
-            <h1> reject</h1>
-        </section>
+        </section> -->
 
-        <script src="machine.js"></script>
-        <script src="script.js"></script>
+    <section id="interview" class="w-9/12 mx-auto pt-10">
+        <div id="int-empty-div" class=" flex justify-center items-center flex-col py-28 px-6 shadow">
+            <div class="mb-6">
+                <img src="assets/empty.png" alt="">
+            </div>
+            <div class="text-center">
+                <p class="text-[24px] text-blue-950 font-bold">No jobs available</p>
+                <p class="text[16px] text-gray-400">Check back soon for new job opportunities</p>
+            </div>
+        </div>
+        <div id="int-non-empty-div" class="card-item p-10 space-y-8">
+
+        </div>
+
+    </section>
+
+
+    <section id="reject" class="w-9/12 mx-auto pt-10 ">
+        <div id="rej-empty-div" class=" flex justify-center items-center flex-col py-28 px-6 shadow">
+            <div class="mb-6">
+                <img src="assets/empty.png" alt="">
+            </div>
+            <div class="text-center">
+                <p class="text-[24px] text-blue-950 font-bold">No jobs available</p>
+                <p class="text[16px] text-gray-400">Check back soon for new job opportunities</p>
+            </div>
+        </div>
+        <div id="rej-non-empty-div" class="card-item p-10 space-y-8">
+
+        </div>
+    </section>
+
+    <script src="machine.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
