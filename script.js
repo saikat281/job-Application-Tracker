@@ -55,18 +55,18 @@ main_container.addEventListener('click', function (event) {
 
         //console.log(company,skill,about,apply_status,work_descript);
 
-         const status = parent.querySelector(".apply-status");
-         status.classList.remove('bg-blue-100');
-         status.classList.remove('btn-error');
-         status.classList.add('btn-success');
-         status.innerText = "INTERVIEW";
-         
+        const status = parent.querySelector(".apply-status");
+        status.classList.remove('bg-blue-100');
+        status.classList.remove('btn-error');
+        status.classList.add('btn-success');
+        status.innerText = "INTERVIEW";
+
 
         const cardinfo = {
             company,
             skill,
             about,
-            apply_status:'INTERVIEW',
+            apply_status: 'INTERVIEW',
             work_descript
         }
 
@@ -95,17 +95,17 @@ main_container.addEventListener('click', function (event) {
 
         //console.log(company,skill,about,apply_status,work_descript);
 
-         const status = parent.querySelector(".apply-status");
-         status.classList.remove('bg-blue-100');
-         status.classList.remove('btn-success');
-         status.classList.add('btn-error');
-         status.innerText = "REJECT";
+        const status = parent.querySelector(".apply-status");
+        status.classList.remove('bg-blue-100');
+        status.classList.remove('btn-success');
+        status.classList.add('btn-error');
+        status.innerText = "REJECT";
 
         const cardinfo = {
             company,
             skill,
             about,
-            apply_status:'REJECT',
+            apply_status: 'REJECT',
             work_descript
         }
 
@@ -149,12 +149,12 @@ Interview_container.addEventListener('click', function (event) {
             company,
             skill,
             about,
-            apply_status:'REJECT',
+            apply_status: 'REJECT',
             work_descript
         }
         //button color set default
         const status = parent.querySelector(".apply-status");
-        status.classList.remove('btn-success','bg-blue-100');
+        status.classList.remove('btn-success', 'bg-blue-100');
 
         //console.log(cardinfo);
         const ExistRej = reject_List.find(item => item.company == cardinfo.company);
@@ -169,12 +169,17 @@ Interview_container.addEventListener('click', function (event) {
         updateRejectCount(reject_List.length);
 
         const parentSection = document.getElementById("all-cards");
-        updateAllJobInterviewStatus(parentSection,cardinfo.company);
+        updateAllJobInterviewStatus(parentSection, cardinfo.company);
 
-         if (interview_List.length == 0) {
+        if (interview_List.length == 0) {
             //console.log("delete");
-            document.getElementById("int-empty-div").classList.remove("hidden");          
+            document.getElementById("int-empty-div").classList.remove("hidden");
         }
+
+        //interviewSectionJobCount(handle_bug)
+        const available_jobs = document.getElementById("available-jobs");
+        available_jobs.innerText = interview_List.length;
+
     }
 })
 
@@ -196,13 +201,13 @@ reject_container.addEventListener('click', function (event) {
         //console.log(company,skill,about,apply_status,work_descript);
 
         const status = parent.querySelector(".apply-status");
-        status.classList.remove('btn-error','bg-blue-100');
+        status.classList.remove('btn-error', 'bg-blue-100');
 
         const cardinfo = {
             company,
             skill,
             about,
-            apply_status:'INTERVIEW',
+            apply_status: 'INTERVIEW',
             work_descript
         }
 
@@ -219,13 +224,17 @@ reject_container.addEventListener('click', function (event) {
         updateInterviewCount(interview_List.length);
         updateRejectCount(reject_List.length);
 
-         const parentSection = document.getElementById("all-cards");
-         updateAllJobRejectStatus(parentSection,cardinfo.company);
+        const parentSection = document.getElementById("all-cards");
+        updateAllJobRejectStatus(parentSection, cardinfo.company);
 
-         if (reject_List.length == 0) {
+        if (reject_List.length == 0) {
             //console.log("delete");
-            document.getElementById("rej-empty-div").classList.remove("hidden");          
+            document.getElementById("rej-empty-div").classList.remove("hidden");
         }
+
+        //RejectSectionJobCount(handle_bug)
+        const available_jobs = document.getElementById("available-jobs");
+        available_jobs.innerText = reject_List.length;
     }
 
 })
@@ -250,7 +259,7 @@ main_container.addEventListener('click', function (event) {
         RenderRejcet();
         updateCount();
         updateInterviewCount(interview_List.length);
-        updateRejectCount(reject_List.length);    
+        updateRejectCount(reject_List.length);
     }
 
 })
@@ -272,7 +281,7 @@ Interview_container.addEventListener('click', function (event) {
 
         //DeleteJobMain 
         const parentSection = document.getElementById("all-cards");
-        DelteInJobInterview(parentSection,company_add);
+        DelteInJobInterview(parentSection, company_add);
 
         RenderInterview();
         RenderRejcet();
@@ -284,11 +293,15 @@ Interview_container.addEventListener('click', function (event) {
         //To show Empty div in interiew section when delete all from interview section
         if (interview_List.length == 0) {
             //console.log("delete");
-            document.getElementById("int-empty-div").classList.remove("hidden");          
+            document.getElementById("int-empty-div").classList.remove("hidden");
         }
-        
-        
-        
+
+
+        //interviewSectionJobCount(handle_bug)
+        const available_jobs = document.getElementById("available-jobs");
+        available_jobs.innerText = interview_List.length;
+
+
     }
 
 })
@@ -309,19 +322,23 @@ reject_container.addEventListener('click', function (event) {
 
         //DeleteJobMain 
         const parentSection = document.getElementById("all-cards");
-        DelteInJobInterview(parentSection,company_add);
+        DelteInJobInterview(parentSection, company_add);
 
         RenderInterview();
         RenderRejcet();
         updateCount();
         updateInterviewCount(interview_List.length);
         updateRejectCount(reject_List.length);
-        
+
         if (reject_List.length == 0) {
             //console.log("delete");
-            document.getElementById("rej-empty-div").classList.remove("hidden");          
+            document.getElementById("rej-empty-div").classList.remove("hidden");
         }
-        
+
+        //RejectSectionJobCount(handle_bug)
+        const available_jobs = document.getElementById("available-jobs");
+        available_jobs.innerText = reject_List.length;
+
     }
 
 })
@@ -329,7 +346,7 @@ reject_container.addEventListener('click', function (event) {
 //Render Functions
 function RenderInterview() {
 
-    
+
 
     const par = document.getElementById("int-non-empty-div");
     par.innerHTML = '';

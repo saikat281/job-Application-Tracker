@@ -10,6 +10,12 @@ function filtering(id) {
     rejectSection.classList.add("hidden");
 
     if (id === 'all-btn') {
+
+        //RejectSectionJobCount(handle_bug)
+        const available_jobs = document.getElementById("available-jobs");
+        allCardCount = allCount_cards.children.length;
+        available_jobs.innerText = allCardCount;
+
         allSection.classList.remove("hidden");
     }
     else if (id === 'interview-btn') {
@@ -21,6 +27,11 @@ function filtering(id) {
         interviewSection.classList.remove("hidden"); //major
         allSection.classList.add("hidden");
         rejectSection.classList.add("hidden");
+
+
+        //interviewSectionJobCount(handle_bug)
+        const available_jobs = document.getElementById("available-jobs");
+        available_jobs.innerText = interview_List.length;
          
 
         if (interview_List.length != 0) {
@@ -41,6 +52,10 @@ function filtering(id) {
         rejectSection.classList.remove("hidden"); //major
         allSection.classList.add("hidden");
         interviewSection.classList.add("hidden");
+
+        //RejectSectionJobCount(handle_bug)
+        const available_jobs = document.getElementById("available-jobs");
+        available_jobs.innerText = reject_List.length;
 
         if (reject_List.length != 0) {
             rej_non_empty.classList.remove("hidden");
