@@ -299,6 +299,8 @@ reject_container.addEventListener('click', function (event) {
 })
 
 //Deletion**
+
+//DeleteFrom main container
 main_container.addEventListener('click', function (event) {
 
     if (event.target.classList.contains("Delete-btn")) {
@@ -322,8 +324,70 @@ main_container.addEventListener('click', function (event) {
 })
 
 
+////DeleteFrom Interview container
+Interview_container.addEventListener('click', function (event) {
+
+    if (event.target.classList.contains("Delete-btn")) {
+
+        const parent = event.target.parentNode.parentNode.parentNode;
+        parent.remove();
+
+        const company_add = parent.querySelector(".company").innerText;
+
+        //console.log(company_add);
+        interview_List = interview_List.filter(item => item.company != company_add);
+        reject_List = reject_List.filter(item => item.company != company_add);
+
+        //DeleteJobMain 
+        const parentSection = document.getElementById("all-cards");
+        DelteInJobInterview(parentSection,company_add);
+
+        RenderInterview();
+        RenderRejcet();
+        updateCount();
+        updateInterviewCount(interview_List.length);
+        updateRejectCount(reject_List.length);
+        
+        
+        
+    }
+
+})
+
+//Delete From Reject Container
+reject_container.addEventListener('click', function (event) {
+
+    if (event.target.classList.contains("Delete-btn")) {
+
+        const parent = event.target.parentNode.parentNode.parentNode;
+        parent.remove();
+
+        const company_add = parent.querySelector(".company").innerText;
+
+        //console.log(company_add);
+        interview_List = interview_List.filter(item => item.company != company_add);
+        reject_List = reject_List.filter(item => item.company != company_add);
+
+        //DeleteJobMain 
+        const parentSection = document.getElementById("all-cards");
+        DelteInJobInterview(parentSection,company_add);
+
+        RenderInterview();
+        RenderRejcet();
+        updateCount();
+        updateInterviewCount(interview_List.length);
+        updateRejectCount(reject_List.length);
+        
+        
+        
+    }
+
+})
+
 //Render Functions
 function RenderInterview() {
+
+    
 
     const par = document.getElementById("int-non-empty-div");
     par.innerHTML = '';
@@ -338,6 +402,8 @@ function RenderInterview() {
                         <p class="company text-[20px] font-bold text-blue-950">${card.company}</p>
                         <p class="skill text-[16px] text-gray-500">${card.skill}</p>
                     </div>
+                    <button class="cursor-pointer"> <img class="Delete-btn size-6" src="assets/Trash.png" alt="">
+                    </button>
         </div>
                 <p class="about text-[16px] text-gray-500">${card.about}</p>
                 <button class="apply-status btn btn-success w-max cursor-default">${card.apply_status}</button>
@@ -369,6 +435,8 @@ function RenderRejcet() {
                         <p class="company text-[20px] font-bold text-blue-950">${card.company}</p>
                         <p class="skill text-[16px] text-gray-500">${card.skill}</p>
                     </div>
+                    <button class="cursor-pointer"> <img class="Delete-btn size-6" src="assets/Trash.png" alt="">
+                    </button>
                 </div>
                 <p class="about text-[16px] text-gray-500">${card.about}</p>
                 <button class="apply-status btn btn-error w-max cursor-default">${card.apply_status}</button>

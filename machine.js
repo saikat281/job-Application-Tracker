@@ -50,7 +50,6 @@ function filtering(id) {
 }
 
 
-
 //Update AllCount
 const allCount_cards = document.getElementById("all-cards");
 let allCardCount = allCount_cards.children.length;
@@ -63,10 +62,10 @@ function updateCount() {
     allCardCount = allCount_cards.children.length;
     total_cnt.innerText = allCardCount;
     available_jobs.innerText = allCardCount;
-
-    if(Number(allCardCount) == 0)
+    console.log(allCardCount);
+    if(allCardCount == 0)
     {
-        const emptyAllCards = document.querySelector("empty-cards");
+        const emptyAllCards = allSection.querySelector(".empty-cards");
         emptyAllCards.classList.remove("hidden");
     }
 }
@@ -88,7 +87,6 @@ function updateRejectCount(count){
 
 
 //Update status in all-jobs section when updating from interviewSection/RejectSection
-
 function updateAllJobRejectStatus(Parent_section,s_Company){
 
     const selected_div = Parent_section.querySelector(`.card[data-company="${s_Company}"]`);
@@ -108,4 +106,12 @@ function updateAllJobInterviewStatus(Parent_section,s_Company){
     selected.classList.remove('btn-success','bg-blue-100')
     selected.classList.add('btn-error');
     selected.innerText = "REJECT";
+}
+
+
+//Delete in all-job from interview/Reject Section
+function DelteInJobInterview(parent_section,s_Company){
+    const selected_div = parent_section.querySelector(`.card[data-company="${s_Company}"]`);
+    //console.log(selected_div);
+    selected_div.remove();
 }
