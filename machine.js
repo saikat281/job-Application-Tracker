@@ -2,6 +2,7 @@
 const allSection = document.getElementById("all-jobs");
 const interviewSection = document.getElementById("interview");
 const rejectSection = document.getElementById("reject");
+
 function filtering(id) {
 
     allSection.classList.add("hidden");
@@ -18,6 +19,9 @@ function filtering(id) {
         int_non_empty.classList.add("hidden");
 
         interviewSection.classList.remove("hidden"); //major
+        allSection.classList.add("hidden");
+        rejectSection.classList.add("hidden");
+         
 
         if (interview_List.length != 0) {
             int_non_empty.classList.remove("hidden");
@@ -33,6 +37,8 @@ function filtering(id) {
         rej_non_empty.classList.add("hidden");
 
         rejectSection.classList.remove("hidden"); //major
+        allSection.classList.add("hidden");
+        interviewSection.classList.add("hidden");
 
         if (reject_List.length != 0) {
             rej_non_empty.classList.remove("hidden");
@@ -57,6 +63,12 @@ function updateCount() {
     allCardCount = allCount_cards.children.length;
     total_cnt.innerText = allCardCount;
     available_jobs.innerText = allCardCount;
+
+    if(Number(allCardCount) == 0)
+    {
+        const emptyAllCards = document.querySelector("empty-cards");
+        emptyAllCards.classList.remove("hidden");
+    }
 }
 
 //UpdateInterviewCount
@@ -72,4 +84,28 @@ let reject_count = document.getElementById("reject-cnt");
 //UpdateRejcetCountFunction
 function updateRejectCount(count){
     reject_count.innerText = count;
+}
+
+
+//Update status in all-jobs section when updating from interviewSection/RejectSection
+
+function updateAllJobRejectStatus(Parent_section,s_Company){
+
+    const selected_div = Parent_section.querySelector(`.card[data-company="${s_Company}"]`);
+    //console.log(selected_div);
+    const selected = selected_div.querySelector(".apply-status");
+    //selected.innerHTML = '';
+    selected.classList.remove('btn-error','bg-blue-100')
+    selected.classList.add('btn-success');
+    selected.innerText = "INTERVIEW"
+   
+}
+function updateAllJobInterviewStatus(Parent_section,s_Company){
+    const selected_div = Parent_section.querySelector(`.card[data-company="${s_Company}"]`);
+    //console.log(selected_div);
+    const selected = selected_div.querySelector(".apply-status");
+    //selected.innerHTML = '';
+    selected.classList.remove('btn-success','bg-blue-100')
+    selected.classList.add('btn-error');
+    selected.innerText = "REJECT";
 }

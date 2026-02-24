@@ -47,7 +47,6 @@ main_container.addEventListener('click', function (event) {
 
     if (event.target.classList.contains("int")) {
         const parent = event.target.parentNode.parentNode;
-
         const company = parent.querySelector(".company").innerText;
         const skill = parent.querySelector(".skill").innerText;
         const about = parent.querySelector(".about").innerText;
@@ -137,6 +136,7 @@ Interview_container.addEventListener('click', function (event) {
 
     if (event.target.classList.contains("int")) {
         const parent = event.target.parentNode.parentNode;
+        //console.log(parent.getAttribute("id"));
 
         const company = parent.querySelector(".company").innerText;
         const skill = parent.querySelector(".skill").innerText;
@@ -148,6 +148,11 @@ Interview_container.addEventListener('click', function (event) {
 
         const status = parent.querySelector(".apply-status");
         status.classList.remove('btn-error','bg-blue-100');
+    
+
+        //Update AllJobs status
+        //updateJobStatus(parent.);
+        
 
         const cardinfo = {
             company,
@@ -156,8 +161,7 @@ Interview_container.addEventListener('click', function (event) {
             apply_status:'INTERVIEW',
             work_descript
         }
-
-
+        
         //console.log(cardinfo);
         const ExistInt = interview_List.find(item => item.company == cardinfo.company);
 
@@ -169,10 +173,7 @@ Interview_container.addEventListener('click', function (event) {
         RenderRejcet();
         updateInterviewCount(interview_List.length);
         updateRejectCount(reject_List.length);
-
-
-
-
+         
     }
 
     else if (event.target.classList.contains("rej")) {
@@ -193,7 +194,7 @@ Interview_container.addEventListener('click', function (event) {
             apply_status:'REJECT',
             work_descript
         }
-
+        //button color set default
         const status = parent.querySelector(".apply-status");
         status.classList.remove('btn-success','bg-blue-100');
 
@@ -208,6 +209,9 @@ Interview_container.addEventListener('click', function (event) {
         RenderRejcet();
         updateInterviewCount(interview_List.length);
         updateRejectCount(reject_List.length);
+
+        const parentSection = document.getElementById("all-cards");
+        updateAllJobInterviewStatus(parentSection,cardinfo.company);
     }
 })
 
@@ -251,6 +255,9 @@ reject_container.addEventListener('click', function (event) {
         RenderRejcet();
         updateInterviewCount(interview_List.length);
         updateRejectCount(reject_List.length);
+
+         const parentSection = document.getElementById("all-cards");
+         updateAllJobRejectStatus(parentSection,cardinfo.company);
     }
 
     else if (event.target.classList.contains("rej")) {
