@@ -134,49 +134,7 @@ const Interview_container = document.getElementById("interview");
 //Toggling from Interview Section
 Interview_container.addEventListener('click', function (event) {
 
-    if (event.target.classList.contains("int")) {
-        const parent = event.target.parentNode.parentNode;
-        //console.log(parent.getAttribute("id"));
-
-        const company = parent.querySelector(".company").innerText;
-        const skill = parent.querySelector(".skill").innerText;
-        const about = parent.querySelector(".about").innerText;
-        const apply_status = parent.querySelector(".apply-status").innerText;
-        const work_descript = parent.querySelector(".work-descript").innerText;
-
-        //console.log(company,skill,about,apply_status,work_descript);
-
-        const status = parent.querySelector(".apply-status");
-        status.classList.remove('btn-error','bg-blue-100');
-    
-
-        //Update AllJobs status
-        //updateJobStatus(parent.);
-        
-
-        const cardinfo = {
-            company,
-            skill,
-            about,
-            apply_status:'INTERVIEW',
-            work_descript
-        }
-        
-        //console.log(cardinfo);
-        const ExistInt = interview_List.find(item => item.company == cardinfo.company);
-
-        if (!ExistInt) {
-            interview_List.push(cardinfo);
-        }
-        reject_List = reject_List.filter(item => item.company != cardinfo.company);
-        RenderInterview();
-        RenderRejcet();
-        updateInterviewCount(interview_List.length);
-        updateRejectCount(reject_List.length);
-         
-    }
-
-    else if (event.target.classList.contains("rej")) {
+    if (event.target.classList.contains("rej")) {
         const parent = event.target.parentNode.parentNode;
 
         const company = parent.querySelector(".company").innerText;
@@ -270,42 +228,6 @@ reject_container.addEventListener('click', function (event) {
         }
     }
 
-    else if (event.target.classList.contains("rej")) {
-        const parent = event.target.parentNode.parentNode;
-
-        const company = parent.querySelector(".company").innerText;
-        const skill = parent.querySelector(".skill").innerText;
-        const about = parent.querySelector(".about").innerText;
-        const apply_status = parent.querySelector(".apply-status").innerText;
-        const work_descript = parent.querySelector(".work-descript").innerText;
-
-        //console.log(company,skill,about,apply_status,work_descript);
-
-        const status = parent.querySelector(".apply-status");
-        status.classList.remove('btn-success','bg-blue-100');
-
-        const cardinfo = {
-            company,
-            skill,
-            about,
-            apply_status:'REJECT',
-            work_descript
-        }
-
-
-        //console.log(cardinfo);
-        const ExistRej = reject_List.find(item => item.company == cardinfo.company);
-
-        if (!ExistRej) {
-            reject_List.push(cardinfo);
-        }
-        interview_List = interview_List.filter(item => item.company != cardinfo.company);
-        RenderInterview();
-        RenderRejcet();
-        updateInterviewCount(interview_List.length);
-        updateRejectCount(reject_List.length);
-        
-    }
 })
 
 //Deletion**
