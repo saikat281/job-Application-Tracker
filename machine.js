@@ -30,6 +30,8 @@ function filtering(id) {
             int_empty.classList.remove("hidden");
         }
     }
+
+
     else {
         const rej_empty = document.getElementById("rej-empty-div");
         const rej_non_empty = document.getElementById("rej-non-empty-div");
@@ -62,7 +64,7 @@ function updateCount() {
     allCardCount = allCount_cards.children.length;
     total_cnt.innerText = allCardCount;
     available_jobs.innerText = allCardCount;
-    console.log(allCardCount);
+    //console.log(allCardCount);
     if(allCardCount == 0)
     {
         const emptyAllCards = allSection.querySelector(".empty-cards");

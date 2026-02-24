@@ -212,6 +212,11 @@ Interview_container.addEventListener('click', function (event) {
 
         const parentSection = document.getElementById("all-cards");
         updateAllJobInterviewStatus(parentSection,cardinfo.company);
+
+         if (interview_List.length == 0) {
+            //console.log("delete");
+            document.getElementById("int-empty-div").classList.remove("hidden");          
+        }
     }
 })
 
@@ -258,6 +263,11 @@ reject_container.addEventListener('click', function (event) {
 
          const parentSection = document.getElementById("all-cards");
          updateAllJobRejectStatus(parentSection,cardinfo.company);
+
+         if (reject_List.length == 0) {
+            //console.log("delete");
+            document.getElementById("rej-empty-div").classList.remove("hidden");          
+        }
     }
 
     else if (event.target.classList.contains("rej")) {
@@ -347,6 +357,13 @@ Interview_container.addEventListener('click', function (event) {
         updateCount();
         updateInterviewCount(interview_List.length);
         updateRejectCount(reject_List.length);
+
+
+        //To show Empty div in interiew section when delete all from interview section
+        if (interview_List.length == 0) {
+            //console.log("delete");
+            document.getElementById("int-empty-div").classList.remove("hidden");          
+        }
         
         
         
@@ -378,7 +395,10 @@ reject_container.addEventListener('click', function (event) {
         updateInterviewCount(interview_List.length);
         updateRejectCount(reject_List.length);
         
-        
+        if (reject_List.length == 0) {
+            //console.log("delete");
+            document.getElementById("rej-empty-div").classList.remove("hidden");          
+        }
         
     }
 
